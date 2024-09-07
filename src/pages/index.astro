@@ -1,7 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Navigation from "../components/Navigation.astro";
 import "../styles/global.css";
 
 const pageTitle = "Home";
@@ -20,5 +19,10 @@ const pageTitle = "Home";
 
     <h1>My Astro Site</h1>
     <Footer />
+
+    <!-- The JavaScript in a <script> tag is sent to the browser -->
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>

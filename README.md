@@ -1,11 +1,13 @@
-# Learn from official tutorial
+![alt text](image.png)
+
+## Learn from official tutorial
 
 https://docs.astro.build/en/tutorial
 
-# My Github Repo
+## My Github Repo
 
 https://github.com/qjnz/astro-tutorial
 
-# My Netlify Site
+## My Netlify Site
 
 https://fancy-blog.netlify.app/blog/

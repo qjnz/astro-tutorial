@@ -1,14 +1,11 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 // frontmatter script
 // https://docs.astro.build/en/tutorial/2-pages/4/
 // adding css vars
 
 // Those commands are all executed at build time to create static HTML for your site, and then the code is “thrown away.”
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import "../styles/global.css";
-
-const pageTitle = "About Me";
 
 const identity = {
   firstName: "QJ",
@@ -48,62 +45,44 @@ const fontWeight = "bold";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-
-    <h1>{pageTitle}</h1>
-    <p>Here are a few things about me:</p>
-    <ul>
-      <li>My name is {identity.firstName} {identity.lastName}</li>
-      <li>
-        I live in {identity.country} and I work as a {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length && (
-          <li>Some of my hobbies are: {identity.hobbies.join(", ")}.</li>
-        )
-      }
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-
-    {happy && <p>I am happy to be learning Astro!</p>}
-    {finished && <p>I finished this tutorial!</p>}
-    {
-      goal === 1 ? (
-        <p>My goal is to finish in 1 days.</p>
-      ) : (
-        <p>My goal is not 1 days.</p>
-      )
+<BaseLayout pageTitle="About Me">
+  <style define:vars={{ skillColor, fontWeight, textCase }}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
     }
 
-    <Footer />
+    .skill {
+      color: var(--skillColor);
+      font-weight: var(--fontWeight);
+      text-transform: var(--textCase);
+    }
+  </style>
 
-    <!-- The JavaScript in a <script> tag is sent to the browser -->
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+  <p>Here are a few things about me:</p>
+  <ul>
+    <li>My name is {identity.firstName} {identity.lastName}</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length && (
+        <li>Some of my hobbies are: {identity.hobbies.join(", ")}.</li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+  {finished && <p>I finished this tutorial!</p>}
+  {
+    goal === 1 ? (
+      <p>My goal is to finish in 1 days.</p>
+    ) : (
+      <p>My goal is not 1 days.</p>
+    )
+  }
+</BaseLayout>

@@ -1,28 +1,7 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import "../styles/global.css";
-
-const pageTitle = "Home";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <Header />
-
-    <h1>My Astro Site</h1>
-    <Footer />
-
-    <!-- The JavaScript in a <script> tag is sent to the browser -->
-    <script>
-      import "../scripts/menu.js";
-    </script>
-  </body>
-</html>
+<BaseLayout pageTitle="Home Page">
+  <h2>My awesome blog subtitle</h2>
+</BaseLayout>
